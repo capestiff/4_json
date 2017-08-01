@@ -4,7 +4,9 @@ import argparse
 
 def load_data(filepath):
     with open(filepath, 'r') as file:
-        return json.load(file)
+        data = json.load(file)
+    file.close()
+    return data
 
 
 def pretty_print_json(data):
