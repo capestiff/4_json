@@ -1,16 +1,17 @@
 import json
 import argparse
+import pprint
 
 
 def load_data(filepath):
     with open(filepath, 'r') as file:
-        json_data_ = json.load(file)
-    file.close()
+        raw_data_ = json.load(file)  # deserialize fp to str
+    json_data_ = json.loads(raw_data_)  # deserialize str to dict
     return json_data_
 
 
 def pretty_print_json(json_data_):
-    print(json.dumps(json.loads(json_data_), indent=4, ensure_ascii=False))
+    pprint.pprint(json_data_)
 
 
 def parse_cli_args():
