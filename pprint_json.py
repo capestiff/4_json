@@ -5,8 +5,7 @@ import pprint
 
 def load_data(filepath):
     with open(filepath, 'r') as file:
-        raw_data_ = json.load(file)  # deserialize fp to str
-    json_data_ = json.loads(raw_data_)  # deserialize str to dict
+        json_data_ = json.load(file)
     return json_data_
 
 
@@ -19,6 +18,7 @@ def parse_cli_args():
     parser.add_argument("path_to_file", help='program reads JSON file and prints the content')
     args = parser.parse_args()
     return args.path_to_file
+
 
 if __name__ == '__main__':
     path_to_file = parse_cli_args()
